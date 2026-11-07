@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Space Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <!-- HOME SCREEN -->
+  <div id="home-screen" class="screen active">
+    <div class="home-content">
+      <div class="rocket-icon">🚀</div>
+      <h1>Little Space Explorer</h1>
+      <p class="subtitle">Complete levels to unlock new games!</p>
+
+      <div class="mode-buttons">
+        <button class="mode-btn color-btn" data-mode="colors" id="btn-colors">
+          <span class="mode-emoji">🪐</span>
+          <span class="mode-title">Color Planets</span>
+          <span class="level-badge" id="badge-colors">Lv.1</span>
+        </button>
+        <button class="mode-btn stars-btn locked" data-mode="stars" id="btn-stars">
+          <span class="mode-emoji">⭐</span>
+          <span class="mode-title">Count Stars</span>
+          <span class="lock-badge" id="lock-stars">🔒</span>
+          <span class="level-badge hidden" id="badge-stars">Lv.1</span>
+        </button>
+        <button class="mode-btn match-btn locked" data-mode="match" id="btn-match">
+          <span class="mode-emoji">🃏</span>
+          <span class="mode-title">Planet Match</span>
+          <span class="lock-badge" id="lock-match">🔒</span>
+          <span class="level-badge hidden" id="badge-match">Lv.1</span>
+        </button>
+        <button class="mode-btn rocket-btn locked" data-mode="rocket" id="btn-rocket">
+          <span class="mode-emoji">🛠️</span>
+          <span class="mode-title">Build Rocket</span>
+          <span class="lock-badge" id="lock-rocket">🔒</span>
+          <span class="level-badge hidden" id="badge-rocket">Lv.1</span>
+        </button>
+      </div>
+
+      <p class="progress-text" id="progress-text">Finish Level 5 in Color Planets to unlock Count Stars!</p>
+    </div>
+  </div>
+
+  <!-- UNLOCK POPUP -->
+  <div id="unlock-popup" class="unlock-popup">
+    <div class="unlock-content">
+      <div class="unlock-emoji">🎉</div>
+      <h2 id="unlock-title">Level Unlocked!</h2>
+      <p id="unlock-desc">Something new is open!</p>
+      <button id="unlock-ok">Let's Go!</button>
+    </div>
+  </div>
+
+  <!-- COLOR PLANETS MODE -->
+  <div id="colors-screen" class="screen">
+    <button class="back-btn" data-back>← Home</button>
+    <div class="game-header">
+      <h2>Color Planets</h2>
+      <div class="score">Level <span id="color-level">1</span> / 20</div>
+    </div>
+    <p class="instruction" id="color-instruction">Find the <span id="target-color">Blue</span> planet!</p>
+    <div class="planets-area" id="planets-area"></div>
+    <div class="feedback" id="color-feedback"></div>
+    <div class="level-progress">
+      <div class="level-bar"><div class="level-fill" id="color-fill"></div></div>
+      <span id="color-progress-text">0 / 3 correct</span>
+    </div>
+  </div>
+
+  <!-- COUNT STARS MODE -->
+  <div id="stars-screen" class="screen">
+    <button class="back-btn" data-back>← Home</button>
+    <div class="game-header">
+      <h2>Count Stars</h2>
+      <div class="score">Level <span id="stars-level">1</span> / 20</div>
+    </div>
+    <p class="instruction">How many stars do you see?</p>
+    <div class="stars-area" id="stars-area"></div>
+    <div class="number-buttons" id="number-buttons"></div>
+    <div class="feedback" id="stars-feedback"></div>
+    <div class="level-progress">
+      <div class="level-bar"><div class="level-fill" id="stars-fill"></div></div>
+      <span id="stars-progress-text">0 / 3 correct</span>
+    </div>
+  </div>
+
+  <!-- PLANET MATCH MODE -->
+  <div id="match-screen" class="screen">
+    <button class="back-btn" data-back>← Home</button>
+    <div class="game-header">
+      <h2>Planet Match</h2>
+      <div class="score">Level <span id="match-level">1</span> / 20</div>
+    </div>
+    <p class="instruction">Find the matching planets!</p>
+    <div class="match-grid" id="match-grid"></div>
+    <div class="feedback" id="match-feedback"></div>
+  </div>
+
+  <!-- BUILD ROCKET MODE -->
+  <div id="rocket-screen" class="screen">
+    <button class="back-btn" data-back>← Home</button>
+    <div class="game-header">
+      <h2>Build Rocket</h2>
+      <div class="score">Level <span id="rocket-level">1</span> / 20</div>
+    </div>
+    <p class="instruction">Choose colors for your rocket!</p>
+
+    <div class="rocket-builder">
+      <div class="rocket-preview" id="rocket-preview">
+        <div class="rocket-part nose" id="part-nose">🚀</div>
+        <div class="rocket-part body" id="part-body"></div>
+        <div class="rocket-part fin left" id="part-fin-left"></div>
+        <div class="rocket-part fin right" id="part-fin-right"></div>
+        <div class="rocket-part window" id="part-window"></div>
+      </div>
+
+      <div class="color-picker">
+        <p>Pick a part, then a color:</p>
+        <div class="part-buttons">
+          <button class="part-btn active" data-part="body">Body</button>
+          <button class="part-btn" data-part="nose">Nose</button>
+          <button class="part-btn" data-part="fins">Fins</button>
+          <button class="part-btn" data-part="window">Window</button>
+        </div>
+        <div class="color-options" id="color-options"></div>
+      </div>
+    </div>
+
+    <button class="launch-btn" id="launch-btn">Launch Rocket! 🚀</button>
+    <div class="feedback" id="rocket-feedback"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
